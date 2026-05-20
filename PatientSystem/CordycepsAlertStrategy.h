@@ -4,5 +4,5 @@
 class CordycepsAlertStrategy : public AlertStrategy {
 
 public:
-	void calculate(const Patient& patient, const Vitals& vitals) override;
+	AlertLevel calculate(const Patient& patient, const Vitals& vitals) override;
 };
