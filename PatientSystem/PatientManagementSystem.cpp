@@ -8,6 +8,8 @@
 #include "PatientDatabaseLoader.h"
 #include "Vitals.h"
 #include "CordycepsAlertStrategy.h"
+#include "AndromedaAlertStrategy.h"
+#include "KepralAlertStrategy.h"
 
 #include "GPNotificationSystemFacade.h"
 #include "HospitalAlertSystemFacade.h"
@@ -45,7 +47,12 @@ void PatientManagementSystem::init()
 		if (p->primaryDiagnosis() == Diagnosis::CORDYCEPS_BRAIN_INFECTION) {
 			p->setAlertStrategy(new CordycepsAlertStrategy());
 		}
-		// TODO: do any processing you need here
+		else if (p->primaryDiagnosis() == Diagnosis::ANDROMEDA_STRAIN) {
+			p->setAlertStrategy(new AndromedaAlertStrategy());
+		}
+		else if (p->primaryDiagnosis() == Diagnosis::KEPRALS_SYNDROME) {
+			p->setAlertStrategy(new KepralAlertStrategy());
+		}
 	}
 }
 
