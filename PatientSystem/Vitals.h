@@ -20,6 +20,7 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, const Vitals& p);
 
+
 protected:
 	float _bodyTemperature;
 	int _bloodPressure;
@@ -27,4 +28,6 @@ protected:
 	int _respiratoryRate;
 
 };
+
+
 
