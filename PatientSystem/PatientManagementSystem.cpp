@@ -7,6 +7,7 @@
 #include "Patient.h"
 #include "PatientDatabaseLoader.h"
 #include "Vitals.h"
+#include "CordycepsAlertStrategy.h"
 
 #include "GPNotificationSystemFacade.h"
 #include "HospitalAlertSystemFacade.h"
@@ -40,6 +41,10 @@ void PatientManagementSystem::init()
 	}
 
 	for (Patient* p : _patients) {
+
+		if (p->primaryDiagnosis() == Diagnosis::CORDYCEPS_BRAIN_INFECTION) {
+			p->setAlertStrategy(new CordycepsAlertStrategy());
+		}
 		// TODO: do any processing you need here
 	}
 }
