@@ -16,7 +16,8 @@ const std::string Diagnosis::ANDROMEDA_STRAIN= "Andromeda Strain";
 
 Patient::Patient(const std::string& firstName, const std::string& lastName, std::tm birthday) :
 	Person(firstName, lastName, birthday),
-	_alertLevel(AlertLevel::Green)
+	_alertLevel(AlertLevel::Green),
+	_alertStrategy(nullptr)
 {
 }
 
@@ -69,6 +70,16 @@ const std::string& Patient::primaryDiagnosis() const
 void Patient::addVitals(const Vitals* v)
 {
 	_vitals.push_back(v);
+
+	if (_alertStrategy) {
+
+		AlertLevel level = _alertStrategy->calculate(*this, *v);
+
+		setAlertLevel(level);
+
+	}
+
+
 	// TODO: calculate alert levels
 }
 
@@ -96,4 +107,8 @@ void Patient::setAlertLevel(AlertLevel level)
 		}
 		cout << endl;
 	}
+}
+
+void Patient::setAlertStrategy(AlertStrategy* strategy) {
+	_alertStrategy = strategy;
 }
