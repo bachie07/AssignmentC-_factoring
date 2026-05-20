@@ -1,9 +1,0 @@
-﻿  CordycepsAlertStrategy.cpp
-  GPNotificationSystemFacade.cpp
-  HospitalAlertSystemFacade.cpp
-  Patient.cpp
-  PatientDatabaseLoader.cpp
-  PatientFileLoader.cpp
-  PatientManagementSystem.cpp
-  Generating Code...
-  PatientSystem.vcxproj -> C:\Users\bach\source\repos\AssignmentC-_factoring\x64\Debug\PatientSystem.exe
