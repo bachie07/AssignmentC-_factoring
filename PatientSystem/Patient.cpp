@@ -80,7 +80,6 @@ void Patient::addVitals(const Vitals* v)
 	}
 
 
-	// TODO: calculate alert levels
 }
 
 const std::vector<const Vitals*> Patient::vitals() const
