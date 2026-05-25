@@ -19,7 +19,6 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
 
     std::ifstream inFile(file);
     if (inFile.is_open()) {
-        std::cout << "File opened succesfully" << std::endl;
 
         string line;
         
@@ -81,9 +80,5 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
         }
 
     }
-    else {
-        std::cout << "Failed to open:" << file << std::endl;
-    }
-
     return patients;
 }
