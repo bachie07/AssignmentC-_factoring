@@ -12,6 +12,8 @@
 
 using namespace std;
 
+//load patients from text file
+//format: uid|LastName, FirstName|DD-MM-YYYY|Disease|BT,BP,HR,RR;...
 
 std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file)
 {

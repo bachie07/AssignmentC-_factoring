@@ -67,10 +67,13 @@ const std::string& Patient::primaryDiagnosis() const
 	return _diagnosis.front();
 }
 
+
+//record a new vital reading for the patient
 void Patient::addVitals(const Vitals* v)
 {
 	_vitals.push_back(v);
 
+	//if strategy assigned, calculate alert level immediately
 	if (_alertStrategy) {
 
 		AlertLevel level = _alertStrategy->calculate(*this, *v);
@@ -87,6 +90,7 @@ const std::vector<const Vitals*> Patient::vitals() const
 	return _vitals;
 }
 
+// update alert level and notifies observer if red
 void Patient::setAlertLevel(AlertLevel level)
 {
 	_alertLevel = level;
@@ -113,11 +117,13 @@ void Patient::setAlertStrategy(AlertStrategy* strategy) {
 	_alertStrategy = strategy;
 }
 
+// add an observer to the notification list
 void Patient::addObserver(IObserver* observer) {
 	_observers.push_back(observer);
 }
 
 
+//loops throug all observers and notifies each one
 void Patient::notifyObservers() {
 	for (IObserver* observer : _observers) {
 		observer->onAlertLevelChanged(this);;

@@ -1,6 +1,9 @@
 #pragma once
 #include "PatientAlertLevels.h"
 
+//defines interface of all alert strategies
+// each disease will have its own strategy
+
 class Patient;
 
 class Vitals;
