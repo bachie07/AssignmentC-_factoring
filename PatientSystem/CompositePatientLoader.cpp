@@ -3,7 +3,7 @@
 CompositePatientLoader::CompositePatientLoader() {
 
 	_loaders.push_back(new PatientDatabaseLoader());
-	_loaders.push_back(new PatientFileLoaderAdapter(".. / PatientSystem / patients.txt"));
+	_loaders.push_back(new PatientFileLoaderAdapter("../PatientSystem/patients.txt"));
 
 }
 
@@ -24,5 +24,11 @@ void CompositePatientLoader::loadPatients(std::vector<Patient*>& patientIn) {
 void CompositePatientLoader::closeConnection() {
 	for (AbstractPatientDatabaseLoader* loader : _loaders) {
 		loader->closeConnection();
+	}
+}
+
+CompositePatientLoader::~CompositePatientLoader() {
+	for (AbstractPatientDatabaseLoader* loader : _loaders) {
+		delete loader;
 	}
 }

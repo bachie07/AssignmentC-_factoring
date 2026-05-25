@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AndromedaAlertStrategy.cpp" />
+    <ClCompile Include="CompositePatientLoader.cpp" />
     <ClCompile Include="CordycepsAlertStrategy.cpp" />
     <ClCompile Include="GPNotificationSystemFacade.cpp" />
     <ClCompile Include="HospitalAlertSystemFacade.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="AbstractPatientDatabaseLoader.h" />
     <ClInclude Include="AlertStrategy.h" />
     <ClInclude Include="AndromedaAlertStrategy.h" />
+    <ClInclude Include="CompositePatientLoader.h" />
     <ClInclude Include="CordycepsAlertStrategy.h" />
     <ClInclude Include="GPNotificationSystemFacade.h" />
     <ClInclude Include="HospitalAlertSystemFacade.h" />

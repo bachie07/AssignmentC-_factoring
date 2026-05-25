@@ -14,6 +14,8 @@ public:
 
 	void closeConnection() override;
 
+	~CompositePatientLoader();
+
 private:
 	std::vector<AbstractPatientDatabaseLoader*> _loaders;
 
