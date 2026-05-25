@@ -41,8 +41,40 @@ std::vector<Patient*> PatientFileLoader::loadPatientFile(const std::string& file
             getline(nameSS, firstName, ',');
 
 
+            std::tm t{};
+
+            std::istringstream dateSS(birthday);
+
+            dateSS >> std::get_time(&t, "%d-%m-%Y");
+
+            Patient* p = new Patient(firstName, lastName, t);
+
+            p->addDiagnosis(disease);
+
+            if (!vitalsStr.empty()) {
+
+                stringstream vitalsSS(vitalsStr);
+                string vitalToken;
+                
+                while (getline(vitalsSS, vitalToken, ';')) {
+
+                    stringstream vSS(vitalToken);
+                    string bt, bp, hr, rr;
+
+                    getline(vSS, bt, ',');
+                    getline(vSS, bp, ',');
+                    getline(vSS, hr, ',');
+                    getline(vSS, rr, ',');
+
+                    Vitals* v = new Vitals(stof(bt), stoi(bp), stoi(hr), stoi(rr));
+
+                    p->addVitals(v);
 
 
+                }
+            }
+                
+            patients.push_back(p);
          
 
         }
