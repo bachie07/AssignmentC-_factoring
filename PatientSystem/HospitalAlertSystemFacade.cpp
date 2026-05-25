@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+//implement IObserver to receive notification when patient hit red alert
+//onAlertLevelChanged called automatically by patient when alert changes
+//delegate to the existing sendAlertforpatient method
+
 
 HospitalAlertSystemFacade::HospitalAlertSystemFacade()
 { }

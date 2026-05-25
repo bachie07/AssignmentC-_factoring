@@ -19,8 +19,9 @@
 using namespace std;
 
 
+
 PatientManagementSystem::PatientManagementSystem() :
-	_patientDatabaseLoader(std::make_unique<CompositePatientLoader>()),
+	_patientDatabaseLoader(std::make_unique<CompositePatientLoader>()), // call composite patient loader to call all loaders
 	_hospitalAlertSystem(std::make_unique<HospitalAlertSystemFacade>()),
 	_gpNotificationSystem(std::make_unique<GPNotificationSystemFacade>())
 {
@@ -36,6 +37,9 @@ PatientManagementSystem::~PatientManagementSystem()
 		delete p;
 	}
 }
+
+//assign correct alert strategy to each patient based on their disease
+//implements the strategy pattern- each disease has their own
 
 void PatientManagementSystem::init()
 {

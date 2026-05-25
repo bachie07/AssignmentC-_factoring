@@ -51,18 +51,26 @@ public:
 	void setAlertLevel(AlertLevel level);
 	const AlertLevel alertLevel() const { return _alertLevel; }
 
+
+	//assign alert calculation strategy for this patient
 	void setAlertStrategy(AlertStrategy* strategy);
 
+
+	//register an observer to be notified on red alert
 	void addObserver(IObserver* observer);
 
+	//notify all registered observer
 	void notifyObservers();
 
 protected:
 	std::vector<std::string> _diagnosis;
 	std::vector<const Vitals*> _vitals;
 	AlertLevel _alertLevel;
+
+	//hold the alert strategy assigned base on disease
 	AlertStrategy* _alertStrategy;
 
+	//hold list of observers to notify when alert level change to red
 	std::vector<IObserver*> _observers;
 
 	friend std::ostream& operator<<(std::ostream& os, const Patient& p);
