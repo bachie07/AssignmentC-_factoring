@@ -17,4 +17,6 @@ AlertLevel AndromedaAlertStrategy::calculate(const Patient& patient, const Vital
 		return AlertLevel::Yellow;
 	}
 
+	return AlertLevel::Green;
+
 }

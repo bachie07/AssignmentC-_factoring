@@ -162,6 +162,7 @@
     <ClInclude Include="CordycepsAlertStrategy.h" />
     <ClInclude Include="GPNotificationSystemFacade.h" />
     <ClInclude Include="HospitalAlertSystemFacade.h" />
+    <ClInclude Include="IObserver.h" />
     <ClInclude Include="KepralAlertStrategy.h" />
     <ClInclude Include="PatientAlertLevels.h" />
     <ClInclude Include="Patient.h" />

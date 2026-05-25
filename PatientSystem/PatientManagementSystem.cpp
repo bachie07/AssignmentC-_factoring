@@ -55,6 +55,9 @@ void PatientManagementSystem::init()
 		else if (p->primaryDiagnosis() == Diagnosis::KEPRALS_SYNDROME) {
 			p->setAlertStrategy(new KepralAlertStrategy());
 		}
+
+		p->addObserver(_hospitalAlertSystem.get());
+		p->addObserver(_gpNotificationSystem.get());
 	}
 }
 

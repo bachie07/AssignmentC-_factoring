@@ -7,7 +7,8 @@ HospitalAlertSystemFacade::HospitalAlertSystemFacade()
 { }
 
 HospitalAlertSystemFacade::~HospitalAlertSystemFacade()
-{ }
+{
+}
 
 void HospitalAlertSystemFacade::sendAlertForPatient(Patient* p)
 {
@@ -17,4 +18,8 @@ void HospitalAlertSystemFacade::sendAlertForPatient(Patient* p)
 		std::cout << "This is an alert to the hospital:" << std::endl;
 		std::cout << "Patient: " << p->humanReadableID() << " has a critical alert level" << std::endl;
 	}
+}
+
+void HospitalAlertSystemFacade::onAlertLevelChanged(Patient* patient) {
+	sendAlertForPatient(patient);
 }
