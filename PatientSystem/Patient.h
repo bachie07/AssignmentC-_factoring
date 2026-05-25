@@ -7,6 +7,9 @@
 #include "PatientAlertLevels.h"
 #include "AlertStrategy.h"
 
+#include "IObserver.h"
+#include <vector>
+
 
 // forward declare classes
 class Vitals;
@@ -50,11 +53,17 @@ public:
 
 	void setAlertStrategy(AlertStrategy* strategy);
 
+	void addObserver(IObserver* observer);
+
+	void notifyObservers();
+
 protected:
 	std::vector<std::string> _diagnosis;
 	std::vector<const Vitals*> _vitals;
 	AlertLevel _alertLevel;
 	AlertStrategy* _alertStrategy;
+
+	std::vector<IObserver*> _observers;
 
 	friend std::ostream& operator<<(std::ostream& os, const Patient& p);
 };

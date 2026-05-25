@@ -102,6 +102,7 @@ void Patient::setAlertLevel(AlertLevel level)
 			break;
 		case AlertLevel::Red:
 			cout << "Red";
+			notifyObservers();
 			break;
 		}
 		cout << endl;
@@ -110,4 +111,15 @@ void Patient::setAlertLevel(AlertLevel level)
 
 void Patient::setAlertStrategy(AlertStrategy* strategy) {
 	_alertStrategy = strategy;
+}
+
+void Patient::addObserver(IObserver* observer) {
+	_observers.push_back(observer);
+}
+
+
+void Patient::notifyObservers() {
+	for (IObserver* observer : _observers) {
+		observer->onAlertLevelChanged(this);;
+	}
 }
