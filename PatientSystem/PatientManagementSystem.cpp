@@ -19,7 +19,7 @@ using namespace std;
 
 
 PatientManagementSystem::PatientManagementSystem() :
-	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>("patients.txt")),
+	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>("../PatientSystem/patients.txt")),
 	_hospitalAlertSystem(std::make_unique<HospitalAlertSystemFacade>()),
 	_gpNotificationSystem(std::make_unique<GPNotificationSystemFacade>())
 {

@@ -1,7 +1,7 @@
 #include "PatientFileLoaderAdapter.h"
 
 
-PatientFileLoaderAdapter::PatientFileLoaderAdapter(const std::string& filename)
+PatientFileLoaderAdapter::PatientFileLoaderAdapter(const std::string& filename) : _filename(filename)
 {
 
 }
