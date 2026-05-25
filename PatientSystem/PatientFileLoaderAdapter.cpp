@@ -12,6 +12,7 @@ void PatientFileLoaderAdapter::initialiseConnection()
 }
 
 
+//delegate to PatientFileLoader and copies results into vector
 void PatientFileLoaderAdapter::loadPatients(std::vector<Patient*>& patientsIn) {
 
 	std::vector<Patient*> loaded = _fileLoader.loadPatientFile(_filename);
