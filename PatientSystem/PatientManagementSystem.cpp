@@ -10,6 +10,7 @@
 #include "CordycepsAlertStrategy.h"
 #include "AndromedaAlertStrategy.h"
 #include "KepralAlertStrategy.h"
+#include "PatientFileLoaderAdapter.h"
 
 #include "GPNotificationSystemFacade.h"
 #include "HospitalAlertSystemFacade.h"
@@ -18,7 +19,7 @@ using namespace std;
 
 
 PatientManagementSystem::PatientManagementSystem() :
-	_patientDatabaseLoader(std::make_unique<PatientDatabaseLoader>("patients.txt")),
+	_patientDatabaseLoader(std::make_unique<PatientFileLoaderAdapter>("patients.txt")),
 	_hospitalAlertSystem(std::make_unique<HospitalAlertSystemFacade>()),
 	_gpNotificationSystem(std::make_unique<GPNotificationSystemFacade>())
 {
