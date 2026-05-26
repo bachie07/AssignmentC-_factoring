@@ -2,6 +2,7 @@
 
 //constructor - add database loader first, then file loader
 //database patients appear before file patients in the list
+
 CompositePatientLoader::CompositePatientLoader() {
 
 	_loaders.push_back(new PatientDatabaseLoader());

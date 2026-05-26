@@ -50,7 +50,7 @@ void PatientManagementSystem::init()
 
 	for (Patient* p : _patients) {
 
-		// set alert strategies 
+		// set alert strategies based on diagnosis 
 		if (p->primaryDiagnosis() == Diagnosis::CORDYCEPS_BRAIN_INFECTION) {
 			p->setAlertStrategy(new CordycepsAlertStrategy());
 		}
